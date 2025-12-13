@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ma carte GTA</title>
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <style>
+    body { margin: 0; }
+    #map { height: 100vh; background: #000; }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    const largeur = 8192;
+    const hauteur = 8192;
+
+    // Création de la map
+    const map = L.map('map', {
+      crs: L.CRS.Simple,
+      minZoom: -4
+    });
+
+    const limites = [[0,0], [hauteur, largeur]];
+
+    // Image de fond
+    L.imageOverlay('map-gta.jpg', limites).addTo(map);
+    map.fitBounds(limites);
+
+// Grapeseed Zone 1
+const zoneGrapeseed1 = L.polygon([
+  [5961, 4890],
+  [6067, 5023],
+  [6047, 5060],
+  [6116, 5175],
+  [5815, 5519],
+  [5695, 5370],
+  [5788, 5192],
+  [5702, 5070]
+], {
+  color: "green",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zoneGrapeseed1.bindPopup("Zone agricole (champs céréaliers et arboricoles : 24 champs et 4 espaces élevage)");
+
+// Grapeseed Zone 2
+const zoneGrapeseed2 = L.polygon([
+  [5875, 5547],
+  [5916, 5606],
+  [5803, 5654],
+  [5778, 5709],
+  [5618, 5731],
+  [5587, 5618]
+], {
+  color: "green",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zoneGrapeseed2.bindPopup("Zone agricole (champs céréaliers et arboricoles : 4 champs)");
+
+// Paleto
+const zonePaleto = L.polygon([
+  [6948, 3849],
+  [6884, 3925],
+  [6911, 4261],
+  [6955, 4260],
+  [7005, 4079],
+  [7068, 4030],
+  [7073, 3898]
+], {
+  color: "green",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zonePaleto.bindPopup("Zone agricole (reliée à Cluckin)");
+
+// Eoliennes
+const zoneWindy = L.polygon([
+  [4332, 5094],
+  [4324, 5216],
+  [4244, 5458],
+  [3704, 5428],
+  [3484, 5348],
+  [3580, 5164],
+  [4024, 5024]
+], {
+  color: "yellow",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zoneWindy.bindPopup("Champ éolien");
+
+// Marlowe
+const zoneWine = L.polygon([
+  [3862, 2460],
+  [3907, 2636],
+  [4103, 2721],
+  [4202, 2720],
+  [4253, 2639],
+  [4209, 2533],
+  [3962, 2443]
+], {
+  color: "green",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zoneWine.bindPopup("Domaine viticole, 13 parcelles regroupées");
+
+    // ------------------------------------------
+    // Taille de base des icônes
+    const baseWidth = 16;
+    const baseHeight = 20;
+
+    // Création des icônes
+    const farmIcon = L.icon({
+      iconUrl: 'farm.png',
+      iconSize: [baseWidth, baseHeight],
+      iconAnchor: [baseWidth / 2, baseHeight],
+      popupAnchor: [0, -baseHeight]
+    });
+
+    const industryIcon = L.icon({
+      iconUrl: 'industry.png',
+      iconSize: [baseWidth, baseHeight],
+      iconAnchor: [baseWidth / 2, baseHeight],
+      popupAnchor: [0, -baseHeight]
+    });
+
+    const stockageIcon = L.icon({
+      iconUrl: 'stockage.png',
+      iconSize: [baseWidth, baseHeight],
+      iconAnchor: [baseWidth / 2, baseHeight],
+      popupAnchor: [0, -baseHeight]
+    });
+
+    const energyIcon = L.icon({
+      iconUrl: 'energy.png',
+      iconSize: [baseWidth, baseHeight],
+      iconAnchor: [baseWidth / 2, baseHeight],
+      popupAnchor: [0, -baseHeight]
+    });
+
+    // ------------------------------------------
+    // MARKERS FARM
+    let farmMarkers = [
+      L.marker([6189, 3403], { icon: farmIcon }).addTo(map).bindPopup("Scierie (accès ferroviaire)"),
+      L.marker([4528, 5656], { icon: farmIcon }).addTo(map).bindPopup("Davis Quartz (mine, ressource à définir)"),
+      L.marker([3932, 3696], { icon: farmIcon }).addTo(map).bindPopup("Ferme individuelle, une parcelle avec plusieurs serres"),
+      L.marker([3404, 4696], { icon: farmIcon }).addTo(map).bindPopup("Écuries")
+    ];
+
+    // ------------------------------------------
+    // MARKERS INDUSTRY
+    let industryMarkers = [
+      L.marker([6781, 3715], { icon: industryIcon }).addTo(map).bindPopup("Cluckin Bell (agroalimentaire)"),
+      L.marker([5116, 6090], { icon: industryIcon }).addTo(map).bindPopup("Humane Labs & Research (industrie et recherche chimique)"),
+      L.marker([4562, 3949], { icon: industryIcon }).addTo(map).bindPopup("Usine de béton")
+    ];
+
+    // ------------------------------------------
+    // MARKERS STOCKAGE
+    let stockageMarkers = [
+      L.marker([5533, 5668], { icon: stockageIcon }).addTo(map).bindPopup("Union Grain Supply Inc (silos)"),
+      L.marker([3902, 4574], { icon: stockageIcon }).addTo(map).bindPopup("Silos dans un complexe moyen, possibles prés à côté")
+    ];
+
+    // ------------------------------------------
+    // MARKERS ENERGY
+    let energyMarkers = [
+      L.marker([4619, 5259], { icon: energyIcon }).addTo(map).bindPopup("Sous-station électrique"),
+      L.marker([3686, 5566], { icon: energyIcon }).addTo(map).bindPopup("Centrale électrique du LS Dept of Green Power (probablement gaz)"),
+      L.marker([2657, 4855], { icon: energyIcon }).addTo(map).bindPopup("Barrage")
+    ];
+
+    // ------------------------------------------
+    // Fonction pour adapter les icônes au zoom
+    function resizeIcons() {
+      let zoom = map.getZoom();
+      let factor = Math.pow(1.2, zoom - map.getMinZoom());
+      let newWidth = baseWidth * factor;
+      let newHeight = baseHeight * factor;
+
+      farmMarkers.forEach(marker => {
+        marker.setIcon(L.icon({
+          iconUrl: 'farm.png',
+          iconSize: [newWidth, newHeight],
+          iconAnchor: [newWidth / 2, newHeight],
+          popupAnchor: [0, -newHeight]
+        }));
+      });
+
+      industryMarkers.forEach(marker => {
+        marker.setIcon(L.icon({
+          iconUrl: 'industry.png',
+          iconSize: [newWidth, newHeight],
+          iconAnchor: [newWidth / 2, newHeight],
+          popupAnchor: [0, -newHeight]
+        }));
+      });
+
+      stockageMarkers.forEach(marker => {
+        marker.setIcon(L.icon({
+          iconUrl: 'stockage.png',
+          iconSize: [newWidth, newHeight],
+          iconAnchor: [newWidth / 2, newHeight],
+          popupAnchor: [0, -newHeight]
+        }));
+      });
+
+      energyMarkers.forEach(marker => {
+        marker.setIcon(L.icon({
+          iconUrl: 'energy.png',
+          iconSize: [newWidth, newHeight],
+          iconAnchor: [newWidth / 2, newHeight],
+          popupAnchor: [0, -newHeight]
+        }));
+      });
+    }
+
+    map.on('zoomend', resizeIcons);
+    resizeIcons(); // initialisation
+
+    // ------------------------------------------
+    // Afficher les coordonnées au clic
+    map.on('click', function(e) {
+      alert("X : " + e.latlng.lng + " / Y : " + e.latlng.lat);
+    });
+
+  </script>
+</body>
+</html>
