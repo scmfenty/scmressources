@@ -121,6 +121,116 @@ const zoneWine = L.polygon([
 
 zoneWine.bindPopup("Domaine viticole, 13 parcelles regroupées");
 
+// Oil
+const zoneOil = L.polygon([
+  [1460, 4544],
+  [1514, 4690],
+  [1607, 4642],
+  [1822, 4914],
+  [1753, 5001],
+  [1517, 4904],
+  [1194, 4859],
+  [1005, 4850],
+  [938, 4554],
+  [982, 4482],
+  [1286, 4519],
+  [1310, 4583]
+], {
+  color: "green",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zoneOil.bindPopup("Champ pétrolifère, entre 20 et 30 pompes, raffinerie, entrepôts, services tiers");
+
+// Minoterie
+const zoneCMC = L.polygon([
+  [1063, 4259],
+  [1183, 4266],
+  [1178, 4356],
+  [1052, 4346]
+], {
+  color: "#4b7a88",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zoneCMC.bindPopup("Grand complexe de minoterie, avec stockage et grande usine principale, Central Milling Company");
+
+// Pibwasser
+const zonePibwasser = L.polygon([
+  [1311, 4281],
+  [1507, 4313],
+  [1500, 4387],
+  [1305, 4368]
+], {
+  color: "#4b7a88",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zonePibwasser.bindPopup("Grand complexe Pibwasser, brasserie industrielle, reliée à Vitreous, verrerie");
+
+// Graviers
+const zoneGraviers = L.polygon([
+  [1306, 4433],
+  [1361, 4436],
+  [1386, 4390],
+  [1419, 4393],
+  [1424, 4453],
+  [1435, 4484],
+  [1377, 4526],
+  [1317, 4559]
+], {
+  color: "#4b7a88",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zoneGraviers.bindPopup("Complexe industriel de production de graviers ou béton");
+
+// Petites usines La Mesa
+const zoneDiv = L.polygon([
+  [1622, 4325],
+  [1613, 4437],
+  [1711, 4438],
+  [1711, 4368]
+], {
+  color: "#4b7a88",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zoneDiv.bindPopup("Zone industrielle de pièces de tracteurs décomposable en 3 à 4 usines et 3 plus petites usines à côté");
+
+// Petites usines La Mesa sud face pétrol
+const zoneDiv2 = L.polygon([
+  [1052, 4360],
+  [1288, 4378],
+  [1290, 4451],
+  [1048, 4429]
+], {
+  color: "#4b7a88",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zoneDiv2.bindPopup("Zone industrielle, entre 5 et 8 usines diverses selon découpage");
+
+// Stockage gaz
+const zoneGasStock = L.polygon([
+  [1062, 4229],
+  [1070, 4178],
+  [1300, 4199],
+  [1298, 4247]
+], {
+  color: "red",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zoneGasStock.bindPopup("Plusieurs zones de stockage de gaz/pétrol");
+
     // ------------------------------------------
     // Taille de base des icônes
     const baseWidth = 16;
@@ -161,7 +271,7 @@ zoneWine.bindPopup("Domaine viticole, 13 parcelles regroupées");
       L.marker([6189, 3403], { icon: farmIcon }).addTo(map).bindPopup("Scierie (accès ferroviaire)"),
       L.marker([4528, 5656], { icon: farmIcon }).addTo(map).bindPopup("Davis Quartz (mine, ressource à définir)"),
       L.marker([3932, 3696], { icon: farmIcon }).addTo(map).bindPopup("Ferme individuelle, une parcelle avec plusieurs serres"),
-      L.marker([3404, 4696], { icon: farmIcon }).addTo(map).bindPopup("Écuries")
+      L.marker([3404, 4696], { icon: farmIcon }).addTo(map).bindPopup("Écuries"),
     ];
 
     // ------------------------------------------
@@ -169,14 +279,32 @@ zoneWine.bindPopup("Domaine viticole, 13 parcelles regroupées");
     let industryMarkers = [
       L.marker([6781, 3715], { icon: industryIcon }).addTo(map).bindPopup("Cluckin Bell (agroalimentaire)"),
       L.marker([5116, 6090], { icon: industryIcon }).addTo(map).bindPopup("Humane Labs & Research (industrie et recherche chimique)"),
-      L.marker([4562, 3949], { icon: industryIcon }).addTo(map).bindPopup("Usine de béton")
+      L.marker([4562, 3949], { icon: industryIcon }).addTo(map).bindPopup("Usine de béton"),
+      L.marker([1570, 4848], { icon: industryIcon }).addTo(map).bindPopup("Raffinerie"),
+      L.marker([1257, 4295], { icon: industryIcon }).addTo(map).bindPopup("Complexe Ammunation (armement), stockage et production possible"),
+      L.marker([1209, 4332], { icon: industryIcon }).addTo(map).bindPopup("Petite usine non définie, peut être relié à Ammunation"),
+      L.marker([1277, 4346], { icon: industryIcon }).addTo(map).bindPopup("Usine Thorns"),
+      L.marker([1329, 4400], { icon: industryIcon }).addTo(map).bindPopup("Verrerie"),
+      L.marker([1466, 4405], { icon: industryIcon }).addTo(map).bindPopup("1 petite usine possible, 1 hangar, 1 garage auto"),
+      L.marker([1557, 4358], { icon: industryIcon }).addTo(map).bindPopup("Grande usine de glaces avec héliport"),
+      L.marker([1550, 4424], { icon: industryIcon }).addTo(map).bindPopup("Go-Loco (compagnie ferroviaire)"),
+      L.marker([1758, 4510], { icon: industryIcon }).addTo(map).bindPopup("Usine d'outillage pour soudure"),
+      L.marker([1851, 4551], { icon: industryIcon }).addTo(map).bindPopup("Usine avec entrepôts"),
+      L.marker([1080, 4458], { icon: industryIcon }).addTo(map).bindPopup("Usine"),
+      L.marker([1142, 4464], { icon: industryIcon }).addTo(map).bindPopup("Usine"),
+      L.marker([1205, 4470], { icon: industryIcon }).addTo(map).bindPopup("Usine")
     ];
 
     // ------------------------------------------
     // MARKERS STOCKAGE
     let stockageMarkers = [
       L.marker([5533, 5668], { icon: stockageIcon }).addTo(map).bindPopup("Union Grain Supply Inc (silos)"),
-      L.marker([3902, 4574], { icon: stockageIcon }).addTo(map).bindPopup("Silos dans un complexe moyen, possibles prés à côté")
+      L.marker([3902, 4574], { icon: stockageIcon }).addTo(map).bindPopup("Silos dans un complexe moyen, possibles prés à côté"),
+      L.marker([1011, 4340], { icon: stockageIcon }).addTo(map).bindPopup("Cypress Warehouses, énorme complexe de stockage"),
+      L.marker([1487, 4263], { icon: stockageIcon }).addTo(map).bindPopup("Stockage Pibwasser"),
+      L.marker([1559, 4273], { icon: stockageIcon }).addTo(map).bindPopup("Grand stockage divers"),
+      L.marker([1605, 4374], { icon: stockageIcon }).addTo(map).bindPopup("Grand entrepôt de l'usine de glaces"),
+      L.marker([1809, 4511], { icon: stockageIcon }).addTo(map).bindPopup("Stockage de l'usine d'outillage")
     ];
 
     // ------------------------------------------
@@ -184,7 +312,9 @@ zoneWine.bindPopup("Domaine viticole, 13 parcelles regroupées");
     let energyMarkers = [
       L.marker([4619, 5259], { icon: energyIcon }).addTo(map).bindPopup("Sous-station électrique"),
       L.marker([3686, 5566], { icon: energyIcon }).addTo(map).bindPopup("Centrale électrique du LS Dept of Green Power (probablement gaz)"),
-      L.marker([2657, 4855], { icon: energyIcon }).addTo(map).bindPopup("Barrage")
+      L.marker([2657, 4855], { icon: energyIcon }).addTo(map).bindPopup("Barrage"),
+      L.marker([1029, 4531], { icon: energyIcon }).addTo(map).bindPopup("Sous-station électrique"),
+      L.marker([1371, 4243], { icon: energyIcon }).addTo(map).bindPopup("Sous-station électrique")
     ];
 
     // ------------------------------------------
@@ -235,11 +365,50 @@ zoneWine.bindPopup("Domaine viticole, 13 parcelles regroupées");
     map.on('zoomend', resizeIcons);
     resizeIcons(); // initialisation
 
-    // ------------------------------------------
-    // Afficher les coordonnées au clic
-    map.on('click', function(e) {
-      alert("X : " + e.latlng.lng + " / Y : " + e.latlng.lat);
-    });
+// ------------------------------------------
+// Point temporaire + coordonnées au clic
+
+let tempMarker = null;
+
+// Clic sur la carte
+map.on('click', function(e) {
+
+  // Supprimer l'ancien point
+  if (tempMarker) {
+    map.removeLayer(tempMarker);
+    tempMarker = null;
+  }
+
+  // Ajouter un petit point rouge
+  tempMarker = L.circleMarker(e.latlng, {
+    radius: 5,
+    color: 'red',
+    fillColor: 'red',
+    fillOpacity: 1
+  }).addTo(map);
+
+  // Popup avec coordonnées
+  L.popup()
+    .setLatLng(e.latlng)
+    .setContent(
+      "X : " + Math.round(e.latlng.lng) +
+      "<br>Y : " + Math.round(e.latlng.lat)
+    )
+    .openOn(map);
+});
+
+// Quand le popup se ferme → supprimer le point
+map.on('popupclose', function() {
+  if (tempMarker) {
+    map.removeLayer(tempMarker);
+    tempMarker = null;
+  }
+});
+
+map.on('click', function(e) {
+  alert("X : " + e.latlng.lng + " / Y : " + e.latlng.lat);
+});
+
 
   </script>
 </body>
