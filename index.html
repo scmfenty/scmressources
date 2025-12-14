@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Ma carte GTA</title>
+  <title>Carte des ressources SCM</title>
 
   <link
     rel="stylesheet"
@@ -215,7 +215,7 @@ const zoneDiv2 = L.polygon([
   fillOpacity: 0.3
 }).addTo(map);
 
-zoneDiv2.bindPopup("Zone industrielle, entre 5 et 8 usines diverses selon découpage");
+zoneDiv2.bindPopup("Zone industrielle, entre 5 et 8 usines diverses selon découpage dont 1 abattoir/usine agroalimentaire");
 
 // Stockage gaz
 const zoneGasStock = L.polygon([
@@ -263,6 +263,37 @@ const zoneSto2 = L.polygon([
 }).addTo(map);
 
 zoneSto2.bindPopup("Plusieurs entrepôts");
+
+// JEtsam Terminal Port
+const zoneJetsam = L.polygon([
+  [766, 4243],
+  [759, 4562],
+  [654, 4562],
+  [653, 4612],
+  [466, 4613],
+  [471, 4257]
+], {
+  color: "red",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zoneJetsam.bindPopup("Jetsam Terminal, port de Los Santos");
+
+// Hangars Port 2
+const zonePort2 = L.polygon([
+  [846, 3875],
+  [725, 3960],
+  [471, 3958],
+  [470, 3823],
+  [816, 3826]
+], {
+  color: "red",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zonePort2.bindPopup("1 géant hangar, 1 entrepôt moyen et 1 bâtiment contenant une dizaine de box d'entreprises");
 
     // ------------------------------------------
     // Taille de base des icônes
@@ -338,6 +369,17 @@ zoneSto2.bindPopup("Plusieurs entrepôts");
       L.marker([1931, 4372], { icon: industryIcon }).addTo(map).bindPopup("Usine"),
       L.marker([1982, 4374], { icon: industryIcon }).addTo(map).bindPopup("Usine"),
       L.marker([1985, 4341], { icon: industryIcon }).addTo(map).bindPopup("Usine de produits cosmetiques"),
+      L.marker([623, 4104], { icon: industryIcon }).addTo(map).bindPopup("Chantier naval"),
+      L.marker([892, 3779], { icon: industryIcon }).addTo(map).bindPopup("Chantier naval"),
+      L.marker([1017, 3612], { icon: industryIcon }).addTo(map).bindPopup("Usine"),
+      L.marker([1362, 3077], { icon: industryIcon }).addTo(map).bindPopup("Xero Gas (carburant ?)"),
+      L.marker([1289, 3020], { icon: industryIcon }).addTo(map).bindPopup("Préparation de fret"),
+      L.marker([1578, 3379], { icon: industryIcon }).addTo(map).bindPopup("Grande casse automobile"),
+      L.marker([1646, 3534], { icon: industryIcon }).addTo(map).bindPopup("Centre de recyclage"),
+      L.marker([1793, 3614], { icon: industryIcon }).addTo(map).bindPopup("Usine"),
+      L.marker([1830, 3656], { icon: industryIcon }).addTo(map).bindPopup("Usine de peinture"),
+      L.marker([1822, 3770], { icon: industryIcon }).addTo(map).bindPopup("Usine avec 2 silos"),
+      L.marker([1387, 4096], { icon: industryIcon }).addTo(map).bindPopup("Usine")
     ];
 
     // ------------------------------------------
@@ -351,7 +393,11 @@ zoneSto2.bindPopup("Plusieurs entrepôts");
       L.marker([1605, 4374], { icon: stockageIcon }).addTo(map).bindPopup("Grand entrepôt de l'usine de glaces"),
       L.marker([1809, 4511], { icon: stockageIcon }).addTo(map).bindPopup("Stockage de l'usine d'outillage"),
       L.marker([2062, 4297], { icon: stockageIcon }).addTo(map).bindPopup("2 stockages à côté de Maibatsu"),
-      L.marker([1830, 4379], { icon: stockageIcon }).addTo(map).bindPopup("Énorme entrepôt de self storage")
+      L.marker([1830, 4379], { icon: stockageIcon }).addTo(map).bindPopup("Énorme entrepôt de self storage"),
+      L.marker([852, 3983], { icon: stockageIcon }).addTo(map).bindPopup("Deux gros réservoirs à gaz"),
+      L.marker([843, 4109], { icon: stockageIcon }).addTo(map).bindPopup("Énorme entrepôt de carburant"),
+      L.marker([790, 3449], { icon: stockageIcon }).addTo(map).bindPopup("Entrepôt PostOP"),
+      L.marker([1450, 4113], { icon: stockageIcon }).addTo(map).bindPopup("Plusieurs réservoirs, peut-être de fuel")
     ];
 
     // ------------------------------------------
@@ -361,7 +407,8 @@ zoneSto2.bindPopup("Plusieurs entrepôts");
       L.marker([3686, 5566], { icon: energyIcon }).addTo(map).bindPopup("Centrale électrique du LS Dept of Green Power (probablement gaz)"),
       L.marker([2657, 4855], { icon: energyIcon }).addTo(map).bindPopup("Barrage"),
       L.marker([1029, 4531], { icon: energyIcon }).addTo(map).bindPopup("Sous-station électrique"),
-      L.marker([1371, 4243], { icon: energyIcon }).addTo(map).bindPopup("Sous-station électrique")
+      L.marker([1371, 4243], { icon: energyIcon }).addTo(map).bindPopup("Sous-station électrique"),
+      L.marker([1609, 4122], { icon: energyIcon }).addTo(map).bindPopup("Sous-station électrique")
     ];
 
     // ------------------------------------------
