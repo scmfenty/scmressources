@@ -231,6 +231,23 @@ const zoneGasStock = L.polygon([
 
 zoneGasStock.bindPopup("Plusieurs zones de stockage de gaz/pétrol");
 
+// Gas Company
+const zoneGasComp = L.polygon([
+  [1194, 4004],
+  [1291, 4072],
+  [1310, 4102],
+  [1306, 4150],
+  [1080, 4140],
+  [1081, 4092],
+  [1134, 4090]
+], {
+  color: "#4b7a88",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zoneGasComp.bindPopup("Grosse usine de traitement de gaz de la Los Santos Gas Company");
+
     // ------------------------------------------
     // Taille de base des icônes
     const baseWidth = 16;
