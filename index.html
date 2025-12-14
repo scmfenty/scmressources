@@ -248,6 +248,22 @@ const zoneGasComp = L.polygon([
 
 zoneGasComp.bindPopup("Grosse usine de traitement de gaz de la Los Santos Gas Company");
 
+// Stockage face Maibatsu
+const zoneSto2 = L.polygon([
+  [2119, 4264],
+  [2117, 4237],
+  [2159, 4233],
+  [2155, 4196],
+  [2243, 4200],
+  [2225, 4260]
+], {
+  color: "red",
+  weight: 2,
+  fillOpacity: 0.3
+}).addTo(map);
+
+zoneSto2.bindPopup("Plusieurs entrepôts");
+
     // ------------------------------------------
     // Taille de base des icônes
     const baseWidth = 16;
@@ -309,7 +325,19 @@ zoneGasComp.bindPopup("Grosse usine de traitement de gaz de la Los Santos Gas Co
       L.marker([1851, 4551], { icon: industryIcon }).addTo(map).bindPopup("Usine avec entrepôts"),
       L.marker([1080, 4458], { icon: industryIcon }).addTo(map).bindPopup("Usine"),
       L.marker([1142, 4464], { icon: industryIcon }).addTo(map).bindPopup("Usine"),
-      L.marker([1205, 4470], { icon: industryIcon }).addTo(map).bindPopup("Usine")
+      L.marker([1205, 4470], { icon: industryIcon }).addTo(map).bindPopup("Usine"),
+      L.marker([2162, 4072], { icon: industryIcon }).addTo(map).bindPopup("Santos Imports Inc, Central Import & Delivery Office"),
+      L.marker([2189, 4072], { icon: industryIcon }).addTo(map).bindPopup("Usine de textile"),
+      L.marker([2257, 4087], { icon: industryIcon }).addTo(map).bindPopup("Centre ferroviaire industriel"),
+      L.marker([2065, 4358], { icon: industryIcon }).addTo(map).bindPopup("Industrie automobile Maibatsu"),
+      L.marker([2135, 4214], { icon: industryIcon }).addTo(map).bindPopup("Usine de liqueurs/digestifs"),
+      L.marker([2051, 4238], { icon: industryIcon }).addTo(map).bindPopup("Usine de textile"),
+      L.marker([1924, 4246], { icon: industryIcon }).addTo(map).bindPopup("Usine de peinture"),
+      L.marker([1813, 4254], { icon: industryIcon }).addTo(map).bindPopup("Usine de textile"),
+      L.marker([1914, 4321], { icon: industryIcon }).addTo(map).bindPopup("Usine"),
+      L.marker([1931, 4372], { icon: industryIcon }).addTo(map).bindPopup("Usine"),
+      L.marker([1982, 4374], { icon: industryIcon }).addTo(map).bindPopup("Usine"),
+      L.marker([1985, 4341], { icon: industryIcon }).addTo(map).bindPopup("Usine de produits cosmetiques"),
     ];
 
     // ------------------------------------------
@@ -321,7 +349,9 @@ zoneGasComp.bindPopup("Grosse usine de traitement de gaz de la Los Santos Gas Co
       L.marker([1487, 4263], { icon: stockageIcon }).addTo(map).bindPopup("Stockage Pibwasser"),
       L.marker([1559, 4273], { icon: stockageIcon }).addTo(map).bindPopup("Grand stockage divers"),
       L.marker([1605, 4374], { icon: stockageIcon }).addTo(map).bindPopup("Grand entrepôt de l'usine de glaces"),
-      L.marker([1809, 4511], { icon: stockageIcon }).addTo(map).bindPopup("Stockage de l'usine d'outillage")
+      L.marker([1809, 4511], { icon: stockageIcon }).addTo(map).bindPopup("Stockage de l'usine d'outillage"),
+      L.marker([2062, 4297], { icon: stockageIcon }).addTo(map).bindPopup("2 stockages à côté de Maibatsu"),
+      L.marker([1830, 4379], { icon: stockageIcon }).addTo(map).bindPopup("Énorme entrepôt de self storage")
     ];
 
     // ------------------------------------------
